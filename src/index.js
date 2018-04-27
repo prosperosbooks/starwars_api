@@ -2,33 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./containers/App.css";
 import Card from "./components/Card";
+import CardList from "./components/CardList";
+import App from "./containers/App";
 import registerServiceWorker from "./registerServiceWorker";
 import "tachyons";
-import { starwarschars } from "./starwarschars";
+import "./containers/App.css"
 
-ReactDOM.render(
-    <div>
-        <Card
-            id={starwarschars[0].id}
-            name={starwarschars[0].name}
-            height={starwarschars[0].height}
-            mass={starwarschars[0].mass}
-        />
+// to create a component, first you:
+// 1. write "import CardList from "./components/CardList" on top of index.js
+// 2. create the actual CardList.js component file
+// 3. you want all the Card components rendered below to be rendered by CardList
+// 4.
 
-        <Card
-            id={starwarschars[1].id}
-            name={starwarschars[1].name}
-            height={starwarschars[1].height}
-            mass={starwarschars[1].mass}
-        />
-
-        <Card
-            id={starwarschars[2].id}
-            name={starwarschars[2].name}
-            height={starwarschars[2].height}
-            mass={starwarschars[2].mass}
-        />
-    </div>,
-    document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();
+
+// move <CardList starwarschars={starwarschars}/> to render in
+// separate App.js file. Going forward, ReactDOM.render will just render App.js
